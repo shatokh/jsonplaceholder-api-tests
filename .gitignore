@@ -11,5 +11,4 @@ dist
 
 test-results
 .vscode
-.husky/_
 .eslintcache

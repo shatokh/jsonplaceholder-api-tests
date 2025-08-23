@@ -1,0 +1,8 @@
+[
+  {
+    "title": { "repeat": { "unit": "L", "times": 256 } },
+    "body": { "repeat": { "unit": "EdgeLarge-", "times": 500 } },
+    "userId": 1,
+    "expect": { "titleLength": 256, "bodyLength": 5000 }
+  }
+]

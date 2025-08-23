@@ -443,3 +443,25 @@
 - Body is an array with length `>= 1`.
 - The first item conforms to **full user schema** (`address.geo`, `company`, required string fields).
 - Note: list-wide minimal contract is covered by `TC-USERS-GET-200-003`; here we spot-check **strict nested** structure.
+
+### TC-POSTS-POST-LARGE-026
+
+**Name:** POST `/posts` — large payload from template (data-driven, echo & schema)  
+**Tags:** `@negative`  
+**Suite:** `tests/edge.spec.ts`  
+**Preconditions:**
+
+- Use `Content-Type: application/json; charset=UTF-8`.
+- Data source: `/test-data/posts.large.template.json` (expanded via `repeat` and helper).  
+  **Steps:**
+- Materialize template payload(s) using helper `expandTemplate` (e.g., `title` ⇒ 256 chars, `body` ⇒ 5000 chars, `userId:1`).
+- Send `POST /posts` with the expanded JSON body.
+- Capture `status`, `headers`, `body`.
+  **Expected:**
+- Status is in `2xx`.
+- Header `Content-Type` starts with `application/json`.
+- Response body conforms to **post** JSON Schema.
+- Field `title` is echoed; its length equals expected `titleLength` (e.g., `256` code points).
+- Field `body` is echoed; its length equals expected `bodyLength` (e.g., `5000` code points).
+- Field `userId` equals input (`1`); field `id` exists and is a `number`.
+- **Notes/Oracle:** Non-persistent emulator — **no** follow-up `GET`. Length is measured in Unicode code points (emoji-safe). Data-driven expectations are taken from the template (`expect.titleLength`, `expect.bodyLength`).
