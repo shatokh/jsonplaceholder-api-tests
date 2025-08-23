@@ -4,4 +4,4 @@
 echo "husky: pre-commit → lint-staged"
 # Debug env prints detailed matching info
 export HUSKY_DEBUG=1
-npx --no-install lint-staged --debug
+npx --no-install lint-staged
