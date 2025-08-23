@@ -1,3 +1,10 @@
+![Node >= 20](https://img.shields.io/badge/node-%E2%89%A5%2020-43853d?logo=nodedotjs&logoColor=white)
+![License](https://img.shields.io/github/license/shatokh/jsonplaceholder-api-tests)
+![Playwright](https://img.shields.io/badge/Tested%20with-Playwright-2ea44f?logo=playwright)
+![TypeScript 5.x](https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white)
+![ESLint 9](https://img.shields.io/badge/ESLint-9-4B32C3?logo=eslint&logoColor=white)
+![Prettier](https://img.shields.io/badge/Code%20style-Prettier-ff69b4?logo=prettier&logoColor=white)
+
 # JSONPlaceholder API Tests (Playwright · TypeScript · Ajv 2020-12)
 
 Lightweight, maintainable API automation framework targeting `https://jsonplaceholder.typicode.com`.
@@ -68,7 +75,7 @@ npm run report
 │  └─ posts.invalid-types.json
 ├─ tests/
 │  ├─ posts.spec.ts
-│  ├─ users.spec.ts              # includes TC-USERS-GET-FULLSCHEMA-025
+│  ├─ users.spec.ts
 │  ├─ todos.spec.ts
 │  ├─ comments.spec.ts
 │  ├─ albums_photos.spec.ts
