@@ -1,0 +1,7 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "husky: pre-commit → lint-staged"
+# Debug env prints detailed matching info
+export HUSKY_DEBUG=1
+npx --no-install lint-staged --debug
