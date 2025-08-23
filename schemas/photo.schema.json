@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "photo.schema.json",
+  "title": "Photo",
+  "description": "JSONPlaceholder photo entity (albumId, id, title, url, thumbnailUrl).",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "albumId": { "type": "integer" },
+    "id": { "type": "integer" },
+    "title": { "type": "string", "minLength": 1 },
+    "url": { "type": "string", "format": "uri" },
+    "thumbnailUrl": { "type": "string", "format": "uri" }
+  },
+  "required": ["albumId", "id", "title", "url", "thumbnailUrl"],
+  "examples": [
+    {
+      "albumId": 1,
+      "id": 1,
+      "title": "accusamus beatae ad facilis cum similique qui sunt",
+      "url": "https://via.placeholder.com/600/92c952",
+      "thumbnailUrl": "https://via.placeholder.com/150/92c952"
+    }
+  ]
+}

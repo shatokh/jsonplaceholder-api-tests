@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "album.schema.json",
+  "title": "Album",
+  "description": "JSONPlaceholder album entity (userId, id, title).",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "userId": { "type": "integer" },
+    "id": { "type": "integer" },
+    "title": { "type": "string", "minLength": 1 }
+  },
+  "required": ["userId", "id", "title"],
+  "examples": [{ "userId": 1, "id": 1, "title": "quidem molestiae enim" }]
+}

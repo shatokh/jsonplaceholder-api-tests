@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "user.full.schema.json",
+  "title": "User (full)",
+  "description": "Full JSONPlaceholder user with nested address/geo and company.",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "id": { "type": "integer" },
+    "name": { "type": "string", "minLength": 1 },
+    "username": { "type": "string", "minLength": 1 },
+    "email": { "type": "string", "format": "email" },
+    "address": { "$ref": "#/$defs/address" },
+    "phone": { "type": "string", "minLength": 1 },
+    "website": { "type": "string", "minLength": 1 },
+    "company": { "$ref": "#/$defs/company" }
+  },
+  "required": ["id", "name", "username", "email", "address", "phone", "website", "company"],
+  "$defs": {
+    "geo": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "lat": { "type": "string", "minLength": 1 },
+        "lng": { "type": "string", "minLength": 1 }
+      },
+      "required": ["lat", "lng"]
+    },
+    "address": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "street": { "type": "string", "minLength": 1 },
+        "suite": { "type": "string", "minLength": 1 },
+        "city": { "type": "string", "minLength": 1 },
+        "zipcode": { "type": "string", "minLength": 1 },
+        "geo": { "$ref": "#/$defs/geo" }
+      },
+      "required": ["street", "suite", "city", "zipcode", "geo"]
+    },
+    "company": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "catchPhrase": { "type": "string", "minLength": 1 },
+        "bs": { "type": "string", "minLength": 1 }
+      },
+      "required": ["name", "catchPhrase", "bs"]
+    }
+  },
+  "examples": [
+    {
+      "id": 1,
+      "name": "Leanne Graham",
+      "username": "Bret",
+      "email": "Sincere@april.biz",
+      "address": {
+        "street": "Kulas Light",
+        "suite": "Apt. 556",
+        "city": "Gwenborough",
+        "zipcode": "92998-3874",
+        "geo": { "lat": "-37.3159", "lng": "81.1496" }
+      },
+      "phone": "1-770-736-8031 x56442",
+      "website": "hildegard.org",
+      "company": {
+        "name": "Romaguera-Crona",
+        "catchPhrase": "Multi-layered client-server neural-net",
+        "bs": "harness real-time e-markets"
+      }
+    }
+  ]
+}

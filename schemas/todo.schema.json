@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "todo.schema.json",
+  "title": "Todo",
+  "description": "JSONPlaceholder todo entity (userId, id, title, completed).",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "userId": { "type": "integer" },
+    "id": { "type": "integer" },
+    "title": { "type": "string", "minLength": 1 },
+    "completed": { "type": "boolean" }
+  },
+  "required": ["userId", "id", "title", "completed"],
+  "examples": [{ "userId": 1, "id": 1, "title": "delectus aut autem", "completed": false }]
+}

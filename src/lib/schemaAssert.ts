@@ -1,7 +1,9 @@
-import Ajv, { ErrorObject } from 'ajv';
+import Ajv2020, { ErrorObject } from 'ajv/dist/2020';
 import addFormats from 'ajv-formats';
 
-const ajv = new Ajv({ allErrors: true, strict: false });
+// strict=false - чтобы не спотыкаться о доп. поля мока; allErrors=true - полный отчёт
+const ajv = new Ajv2020({ allErrors: true, strict: false });
+// Поддержка форматов (email/uri и т.д.)
 addFormats(ajv);
 
 export function assertSchema(data: unknown, schema: object): void {
@@ -19,7 +21,7 @@ function formatErrors(errors: ErrorObject[] | null | undefined): string {
     .map((e) => {
       const path = e.instancePath || e.schemaPath || '<root>';
       const params = JSON.stringify(e.params);
-      return `• ${path} — ${e.message} (${params})`;
+      return `• ${path} - ${e.message} (${params})`;
     })
     .join('\n');
 }

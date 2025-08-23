@@ -8,7 +8,6 @@
     "test": "playwright test",
     "test:happy": "playwright test --grep @happy-path",
     "test:negative": "playwright test --grep @negative",
-    "test:full": "playwright test",
     "report": "playwright show-report",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",

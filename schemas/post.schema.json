@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "post.schema.json",
+  "title": "Post",
+  "description": "JSONPlaceholder post entity (id, title, body, userId).",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "userId": { "type": "integer", "description": "Owner user id." },
+    "id": { "type": "integer", "description": "Post id." },
+    "title": { "type": "string", "minLength": 1 },
+    "body": { "type": "string", "minLength": 1 }
+  },
+  "required": ["userId", "id", "title", "body"],
+  "examples": [{ "userId": 1, "id": 1, "title": "sunt aut facere", "body": "quia et suscipit ..." }]
+}

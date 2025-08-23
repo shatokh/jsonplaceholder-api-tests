@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "comment.schema.json",
+  "title": "Comment",
+  "description": "JSONPlaceholder comment entity (postId, id, name, email, body).",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "postId": { "type": "integer" },
+    "id": { "type": "integer" },
+    "name": { "type": "string", "minLength": 1 },
+    "email": { "type": "string", "format": "email" },
+    "body": { "type": "string", "minLength": 1 }
+  },
+  "required": ["postId", "id", "name", "email", "body"],
+  "examples": [
+    {
+      "postId": 1,
+      "id": 1,
+      "name": "id labore ex et quam laborum",
+      "email": "Eliseo@gardner.biz",
+      "body": "laudantium enim ..."
+    }
+  ]
+}
