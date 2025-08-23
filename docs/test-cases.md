@@ -427,17 +427,19 @@
 - Body is an array with length `0`.
 
 ### TC-USERS-GET-FULLSCHEMA-025
+
 **Name:** GET `/users` — first item matches full nested schema  
 **Tags:** `@happy-path`  
 **Suite:** `tests/users.spec.ts`  
 **Preconditions:** Base URL is reachable; no auth.  
 **Steps:**
+
 - Send `GET /users`.
 - Parse the JSON array.
 - Select the first item (`index 0`).
-**Expected:**
+  **Expected:**
 - Status `200`.
 - Header `Content-Type` starts with `application/json`.
 - Body is an array with length `>= 1`.
-- The first item conforms to **full user schema** (`address.geo`, `company`, required string fields).  
+- The first item conforms to **full user schema** (`address.geo`, `company`, required string fields).
 - Note: list-wide minimal contract is covered by `TC-USERS-GET-200-003`; here we spot-check **strict nested** structure.
