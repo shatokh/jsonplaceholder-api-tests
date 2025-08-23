@@ -1,0 +1,41 @@
+{
+  "name": "jsonplaceholder-api-tests",
+  "version": "1.0.0",
+  "description": "API tests for JSONPlaceholder using Playwright",
+  "main": "index.js",
+  "license": "ISC",
+  "scripts": {
+    "test": "playwright test",
+    "test:happy": "playwright test --grep @happy-path",
+    "test:negative": "playwright test --grep @negative",
+    "test:full": "playwright test",
+    "report": "playwright show-report",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --check",
+    "format:fix": "prettier . --write",
+    "prepare": "husky"
+  },
+  "keywords": [],
+  "author": "",
+  "devDependencies": {
+    "@eslint/js": "^9.34.0",
+    "@playwright/test": "^1.55.0",
+    "@types/node": "^24.3.0",
+    "@typescript-eslint/eslint-plugin": "^8.40.0",
+    "@typescript-eslint/parser": "^8.40.0",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "eslint": "^9.34.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-playwright": "^2.2.2",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.1.5",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.40.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
