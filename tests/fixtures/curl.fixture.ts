@@ -1,7 +1,6 @@
-/**
- * Auto-attach cURL reproduction *only on failure*.
- * Conditional check happens in fixture teardown (not in test body).
- */
+// Auto-attach cURL reproduction *only on failure*.
+// Conditional check happens in fixture teardown (not in test body).
+
 import { test as base, expect } from '@playwright/test';
 import { toCurl, type CurlInput } from '../../src/lib/curl';
 

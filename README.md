@@ -198,6 +198,17 @@ See `/docs/ci-examples.md` for a copy‑paste GitHub Actions workflow that runs 
 
 ---
 
+## Sample Reports (stored in `/docs/report-sample`)
+
+This repository includes **example test reports** for quick review without running the suite.
+
+- **HTML report (local snapshot):**  
+  Open `docs/report-sample/index.html` in your browser to view the interactive Playwright report.
+- **Console log:**  
+  `docs/report-sample/console.txt` — the full console output of the last saved run.
+
+---
+
 ## Assumptions & clarifications
 
 - **Non‑persistence** of mutations is _expected_; tests do not perform read‑after‑write checks.
