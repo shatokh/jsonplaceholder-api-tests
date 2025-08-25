@@ -16,7 +16,7 @@ Lightweight, maintainable API automation framework targeting `https://jsonplaceh
 
 - ✅ Playwright **API testing** with TypeScript
 - ✅ **Tags**: `@happy-path` and `@negative`
-- ✅ **Traceability**: each test maps to a unique **TC‑ID** (e.g., `TC-POSTS-GET-200-001`)
+- ✅ **Traceability**: each test maps to a unique **TC‑ID** (e.g., `TC-001-POSTS-GET-200`)
 - ✅ **JSON Schema (draft 2020‑12)** via Ajv (`ajv/dist/2020`) + `ajv-formats`
 - ✅ **Data‑driven** tests (external JSON payloads)
 - ✅ **ESLint 9** (flat) + **Prettier**; **Husky** + **lint‑staged** pre‑commit
@@ -79,6 +79,7 @@ npm run report
 │  ├─ comments.spec.ts
 │  ├─ albums_photos.spec.ts
 │  ├─ nested.spec.ts
+│  ├─ helpers.ts                 # utility functions to reduce boilerplate
 │  ├─ negative.spec.ts
 │  └─ edge.spec.ts
 ├─ src/
@@ -146,7 +147,7 @@ function formatError(e: ErrorObject): string {
 Example test title:
 
 ```
-GET /posts returns 200 and minimal contract @happy-path [TC-POSTS-GET-200-001]
+GET /posts returns 200 and minimal contract @happy-path [TC-001-POSTS-GET-200]
 ```
 
 ---
