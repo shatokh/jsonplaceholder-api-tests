@@ -465,3 +465,31 @@
 - Field `body` is echoed; its length equals expected `bodyLength` (e.g., `5000` code points).
 - Field `userId` equals input (`1`); field `id` exists and is a `number`.
 - **Notes/Oracle:** Non-persistent emulator — **no** follow-up `GET`. Length is measured in Unicode code points (emoji-safe). Data-driven expectations are taken from the template (`expect.titleLength`, `expect.bodyLength`).
+
+### TC-028-POSTS-POST-BOUNDARY-2XX
+
+**Name:** POST `/posts` — boundary payloads (data-driven, echo & schema)  
+**Tags:** `@happy-path`  
+**Suite:** `tests/posts.spec.ts`
+
+**Preconditions:**
+
+- Send requests with header `Content-Type: application/json; charset=UTF-8`.
+- Data source: `/test-data/posts.boundary.valid.json` (boundary-valid inputs: minimal/maximal lengths, special characters, etc.).
+- Schema: `schemas/post.schema.json` (JSON Schema 2020-12).
+- JSONPlaceholder is **non-persistent** for `POST/PUT/PATCH/DELETE` — do **not** verify state via a follow-up `GET`.
+
+**Steps:**
+
+- Iterate over each payload in `/test-data/posts.boundary.valid.json`.
+- For each payload, send `POST /posts` with the JSON body.
+- Capture `status`, `headers`, and response `body`.
+
+**Expected:**
+
+- `status` is in the `2xx` range.
+- `Content-Type` header starts with `application/json`.
+- Response `body` conforms to the **post** schema.
+- Fields `title`, `body`, and `userId` are echoed exactly as sent.
+- Field `id` exists and is a `number`.
+- (Data-driven) Inputs at the boundaries remain intact in the echo (e.g., min/max length strings preserved).
