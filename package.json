@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "API tests for JSONPlaceholder using Playwright",
   "main": "index.js",
-  "license": "ISC",
+  "license": "MIT",
   "scripts": {
     "test": "playwright test",
     "test:happy": "playwright test --grep @happy-path",
@@ -16,7 +16,7 @@
     "prepare": "husky"
   },
   "keywords": [],
-  "author": "",
+  "author": "ds",
   "devDependencies": {
     "@eslint/js": "^9.34.0",
     "@playwright/test": "^1.55.0",
