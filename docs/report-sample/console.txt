@@ -1,0 +1,36 @@
+> jsonplaceholder-api-tests@1.0.0 test
+> playwright test
+
+
+Running 28 tests using 4 workers
+
+  ✓   1 tests\comments.spec.ts:9:7 › Comments API › GET /comments?postId=1 returns 200 and each has postId=1 @happy-path [TC-008-COMMENTS-GET-FILTER-200] (762ms)                                                          
+  ✓   2 tests\edge.spec.ts:25:7 › Edge / Parallel › Parallel GETs across resources @negative [TC-024-MULTI-GET-PARALLEL-200] (1.1s)
+  ✓   3 tests\negative.spec.ts:11:7 › Negative & edge cases › GET /unknown returns 404 @negative [TC-016-UNKNOWN-GET-404] (1.4s)
+  ✓   4 tests\albums_photos.spec.ts:7:7 › Albums & Photos API › GET /albums returns 200 and contract @happy-path [TC-005-ALBUMS-GET-200] (175ms)
+  ✓   5 tests\albums_photos.spec.ts:17:7 › Albums & Photos API › GET /photos returns 200 and contract @happy-path [TC-006-PHOTOS-GET-200] (52ms)
+  ✓   6 tests\nested.spec.ts:7:7 › Nested endpoints › GET /posts/1/comments - each has postId=1 @happy-path [TC-009-POSTS-GET-NESTED-200] (34ms)
+  ✓   7 tests\nested.spec.ts:20:7 › Nested endpoints › GET /users/1/todos - each has userId=1 @happy-path [TC-010-USERS-GET-NESTED-200] (391ms)
+  ✓   8 tests\posts.spec.ts:9:7 › Posts API › GET /posts returns 200 and minimal contract @happy-path [TC-001-POSTS-GET-200] (23ms)
+  ✓   9 tests\todos.spec.ts:6:7 › Todos API › GET /todos returns 200 and contract @happy-path [TC-004-TODOS-GET-200] (206ms)
+  ✓  10 tests\posts.spec.ts:22:7 › Posts API › GET /posts/1 returns item with id=1 @happy-path [TC-002-POSTS-GETID-200] (78ms)
+  ✓  11 tests\posts.spec.ts:33:7 › Posts API › GET /posts?userId=1 filters by userId @happy-path [TC-007-POSTS-GET-FILTER-200] (22ms)
+  ✓  12 tests\posts.spec.ts:47:7 › Posts API › POST /posts echoes valid JSON + id @happy-path [TC-011-POSTS-POST-2XX] (130ms)
+  ✓  13 tests\users.spec.ts:7:7 › Users API › GET /users returns 200 and minimal user contract @happy-path [TC-003-USERS-GET-200] (206ms)
+  ✓  14 tests\posts.spec.ts:67:7 › Posts API › PUT /posts/1 full echo @happy-path [TC-012-POSTS-PUT-2XX] (398ms)
+  ✓  15 tests\edge.spec.ts:33:7 › Edge / Parallel › GET /posts?userId=999 yields empty array @negative [TC-025-POSTS-GET-FILTER-EMPTY-200] (207ms)
+  ✓  16 tests\users.spec.ts:20:7 › Users API › GET /users - first user matches full nested schema @happy-path [TC-026-USERS-GET-FULLSCHEMA-200] (206ms)
+  ✓  17 tests\edge.spec.ts:43:7 › Edge / Parallel › POST /posts large payload from template @negative [TC-027-POSTS-POST-LARGE-2XX] (958ms)
+  ✓  18 tests\negative.spec.ts:17:7 › Negative & edge cases › GET /posts/999999 not found (document actual) @negative [TC-017-POSTS-GETID-NOTFOUND] (856ms)
+  ✓  19 tests\posts.spec.ts:83:7 › Posts API › PATCH /posts/1 partial update @happy-path [TC-013-POSTS-PATCH-2XX] (356ms)
+  ✓  20 tests\posts.spec.ts:105:7 › Posts API › DELETE /posts/1 returns 2xx (mock, non-persistent) @happy-path [TC-014-POSTS-DELETE-2XX] (134ms)
+  ✓  21 tests\posts.spec.ts:117:7 › Posts API › POST /posts supports Unicode roundtrip @happy-path [TC-POSTS-POST-UNICODE-014] (131ms)
+  ✓  22 tests\posts.spec.ts:134:7 › Posts API › POST /posts boundary payloads (data-driven) @happy-path [TC-028-POSTS-POST-BOUNDARY-2XX] (608ms)
+  ✓  23 tests\negative.spec.ts:37:7 › Negative & edge cases › POST /posts without Content-Type - capture behavior @negative [TC-018-POSTS-POST-NO-CTYPE] (888ms)
+  ✓  24 tests\negative.spec.ts:48:7 › Negative & edge cases › POST /posts malformed JSON - capture behavior @negative [TC-019-POSTS-POST-MALFORMED] (859ms)
+  ✓  25 tests\negative.spec.ts:60:7 › Negative & edge cases › PUT /posts/1 with wrong types fails client schema @negative [TC-020-POSTS-PUT-SCHEMA-INVALID] (914ms)
+  ✓  26 tests\negative.spec.ts:73:7 › Negative & edge cases › PATCH /posts/1 with wrong types fails client schema @negative [TC-021-POSTS-PATCH-SCHEMA-INVALID] (416ms)
+  ✓  27 tests\negative.spec.ts:85:7 › Negative & edge cases › DELETE /posts/999999999 returns 2xx (mock trait) @negative [TC-022-POSTS-DELETE-NONEXIST-2XX] (416ms)
+  ✓  28 tests\negative.spec.ts:93:7 › Negative & edge cases › GET /posts with wrong Accept - capture behavior @negative [TC-023-POSTS-GET-ACCEPT-NEG] (198ms)
+
+  28 passed (7.2s)
