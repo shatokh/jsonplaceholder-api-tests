@@ -46,7 +46,7 @@ test.describe('Posts API', () => {
   test('POST /posts echoes valid JSON + id @happy-path [TC-POSTS-POST-JSONSCHEMA-002]', async ({
     request,
   }) => {
-    const payload = validPosts[0]; // {title, body, userId}
+    const payload = validPosts[0];
     const res = await request.post('/posts', {
       data: payload,
       headers: { 'Content-Type': 'application/json; charset=UTF-8' },

@@ -114,3 +114,9 @@ Implications:
 - We **do not** perform read-after-write/DELETE checks.
 - `DELETE` may return 2xx for any id; absence is **not** required.
 - Any failure caused solely by lack of persistence is a **test-bug** (wrong oracle), not an API defect.
+
+## 14) Attachments: cURL on fail(added in edge.spec.ts for POST only )
+
+- For all mutation tests, we record a ready-to-run `curl` command before the HTTP call.
+- A Playwright fixture attaches it **only when a test fails**, under **Attachments → cURL repro**.
+- The command is portable across shells (Windows/macOS/Linux).

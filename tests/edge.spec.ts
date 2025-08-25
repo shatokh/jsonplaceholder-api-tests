@@ -1,9 +1,12 @@
 // tests/edge.spec.ts
-import { test, expect } from '@playwright/test';
+import { test, expect } from './fixtures/curl.fixture';
 import { assertSchema } from '../src/lib/schemaAssert';
 import postSchema from '../schemas/post.schema.json';
 import largeTplRaw from '../test-data/posts.large.template.json';
 import { expandTemplate, strLen, pickExpectedLengths } from './helpers';
+
+// Resolve base URL for cURL outside of test bodies to avoid conditional-in-test warnings
+const BASE_URL_FOR_CURL = process.env.BASE_URL || 'https://jsonplaceholder.typicode.com';
 
 // Strongly-typed large post payload after template expansion
 type LargePost = {
@@ -39,8 +42,17 @@ test.describe('Edge / Parallel', () => {
 
   test('POST /posts large payload from template @negative [TC-POSTS-POST-LARGE-026]', async ({
     request,
+    recordCurl,
   }) => {
     for (const payload of expandedLargeTemplates) {
+      // Record cURL before the request (fixture attaches on failure only)
+      recordCurl({
+        method: 'POST',
+        url: `${BASE_URL_FOR_CURL}/posts`,
+        headers: { 'Content-Type': 'application/json; charset=UTF-8' },
+        data: { title: payload.title, body: payload.body, userId: payload.userId },
+      });
+
       const res = await request.post('/posts', {
         data: { title: payload.title, body: payload.body, userId: payload.userId },
         headers: { 'Content-Type': 'application/json; charset=UTF-8' },
