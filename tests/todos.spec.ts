@@ -3,7 +3,7 @@ import { assertSchema } from '../src/lib/schemaAssert';
 import todoSchema from '../schemas/todo.schema.json';
 
 test.describe('Todos API', () => {
-  test('GET /todos returns 200 and contract @happy-path [TC-TODOS-GET-200-004]', async ({
+  test('GET /todos returns 200 and contract @happy-path [TC-004-TODOS-GET-200]', async ({
     request,
   }) => {
     const res = await request.get('/todos');

@@ -5,7 +5,7 @@
 
 ---
 
-### TC-POSTS-GET-200-001
+### TC-001-POSTS-GET-200
 
 **Name:** GET `/posts` - 200, JSON, minimal item contract  
 **Tags:** `@happy-path`  
@@ -25,7 +25,7 @@
 
 ---
 
-### TC-POSTS-GETID-200-002
+### TC-002-POSTS-GETID-200
 
 **Name:** GET `/posts/1` - 200, item contract  
 **Tags:** `@happy-path`  
@@ -42,7 +42,7 @@
 
 ---
 
-### TC-USERS-GET-200-003
+### TC-003-USERS-GET-200
 
 **Name:** GET `/users` - 200, JSON, minimal user contract  
 **Tags:** `@happy-path`  
@@ -59,7 +59,7 @@
 
 ---
 
-### TC-TODOS-GET-200-004
+### TC-004-TODOS-GET-200
 
 **Name:** GET `/todos` - 200, JSON, minimal todo contract  
 **Tags:** `@happy-path`  
@@ -76,7 +76,7 @@
 
 ---
 
-### TC-ALBUMS-GET-200-005
+### TC-005-ALBUMS-GET-200
 
 **Name:** GET `/albums` - 200, JSON, minimal album contract  
 **Tags:** `@happy-path`  
@@ -93,7 +93,7 @@
 
 ---
 
-### TC-PHOTOS-GET-200-006
+### TC-006-PHOTOS-GET-200
 
 **Name:** GET `/photos` - 200, JSON, minimal photo contract  
 **Tags:** `@happy-path`  
@@ -110,7 +110,7 @@
 
 ---
 
-### TC-POSTS-GET-FILTER-200-007
+### TC-007-POSTS-GET-FILTER-200
 
 **Name:** GET `/posts?userId=1` - filter integrity  
 **Tags:** `@happy-path`  
@@ -127,7 +127,7 @@
 
 ---
 
-### TC-COMMENTS-GET-FILTER-200-008
+### TC-008-COMMENTS-GET-FILTER-200
 
 **Name:** GET `/comments?postId=1` - filter integrity  
 **Tags:** `@happy-path`  
@@ -144,7 +144,7 @@
 
 ---
 
-### TC-POSTS-GET-NESTED-200-009
+### TC-009-POSTS-GET-NESTED-200
 
 **Name:** GET `/posts/1/comments` - nested correctness  
 **Tags:** `@happy-path`  
@@ -161,7 +161,7 @@
 
 ---
 
-### TC-USERS-GET-NESTED-200-010
+### TC-010-USERS-GET-NESTED-200
 
 **Name:** GET `/users/1/todos` - nested correctness  
 **Tags:** `@happy-path`  
@@ -178,7 +178,7 @@
 
 ---
 
-### TC-POSTS-POST-JSONSCHEMA-002
+### TC-011-POSTS-POST-2XX
 
 **Name:** POST `/posts` - success (emulated), JSON echo with `id`  
 **Tags:** `@happy-path`  
@@ -199,7 +199,7 @@
 
 ---
 
-### TC-POSTS-PUT-JSONSCHEMA-011
+### TC-012-POSTS-PUT-2XX
 
 **Name:** PUT `/posts/1` - success (emulated), full echo  
 **Tags:** `@happy-path`  
@@ -217,7 +217,7 @@
 
 ---
 
-### TC-POSTS-PATCH-JSONSCHEMA-012
+### TC-013-POSTS-PATCH-2XX
 
 **Name:** PATCH `/posts/1` - success (emulated), partial update  
 **Tags:** `@happy-path`  
@@ -235,7 +235,7 @@
 
 ---
 
-### TC-POSTS-DELETE-2XX-013
+### TC-014-POSTS-DELETE-2XX
 
 **Name:** DELETE `/posts/1` - success (emulated)  
 **Tags:** `@happy-path`  
@@ -252,7 +252,7 @@
 
 ---
 
-### TC-POSTS-POST-UNICODE-014
+### TC-015-POSTS-POST-UNICODE-2XX
 
 **Name:** POST `/posts` - Unicode payload round-trip  
 **Tags:** `@happy-path`  
@@ -270,7 +270,7 @@
 
 ---
 
-### TC-UNKNOWN-GET-404-015
+### TC-016-UNKNOWN-GET-404
 
 **Name:** GET `/unknown` - 404  
 **Tags:** `@negative`  
@@ -284,7 +284,7 @@
 
 ---
 
-### TC-POSTS-GETID-NOTFOUND-016
+### TC-017-POSTS-GETID-NOTFOUND
 
 **Name:** GET `/posts/999999` - not found (document actual)  
 **Tags:** `@negative`  
@@ -300,7 +300,7 @@
 
 ---
 
-### TC-POSTS-POST-NO-CTYPE-017
+### TC-018-POSTS-POST-NO-CTYPE
 
 **Name:** POST `/posts` without `Content-Type` - behavior capture  
 **Tags:** `@negative`  
@@ -316,7 +316,7 @@
 
 ---
 
-### TC-POSTS-POST-MALFORMED-018
+### TC-019-POSTS-POST-MALFORMED
 
 **Name:** POST `/posts` malformed JSON - client/server error  
 **Tags:** `@negative`  
@@ -332,7 +332,7 @@
 
 ---
 
-### TC-POSTS-PUT-SCHEMA-INVALID-019
+### TC-020-POSTS-PUT-SCHEMA-INVALID
 
 **Name:** PUT `/posts/1` - wrong types must fail **client** schema  
 **Tags:** `@negative`  
@@ -348,7 +348,7 @@
 
 ---
 
-### TC-POSTS-PATCH-SCHEMA-INVALID-020
+### TC-021-POSTS-PATCH-SCHEMA-INVALID
 
 **Name:** PATCH `/posts/1` - wrong types must fail **client** schema  
 **Tags:** `@negative`  
@@ -364,7 +364,7 @@
 
 ---
 
-### TC-POSTS-DELETE-NONEXIST-2XX-021
+### TC-022-POSTS-DELETE-NONEXIST-2XX
 
 **Name:** DELETE `/posts/999999999` - success (mock trait)  
 **Tags:** `@negative`  
@@ -380,7 +380,7 @@
 
 ---
 
-### TC-ACCEPT-WRONG-NEG-022
+### TC-023-POSTS-GET-ACCEPT-NEG
 
 **Name:** GET `/posts` with wrong `Accept` - behavior capture  
 **Tags:** `@negative`  
@@ -396,7 +396,7 @@
 
 ---
 
-### TC-PARALLEL-GET-SMOKE-023
+### TC-024-MULTI-GET-PARALLEL-200
 
 **Name:** Parallel GETs across resources - health under light load  
 **Tags:** `@negative`  
@@ -412,7 +412,7 @@
 
 ---
 
-### TC-FILTER-EMPTY-024
+### TC-025-POSTS-GET-FILTER-EMPTY-200
 
 **Name:** GET `/posts?userId=999` - empty result  
 **Tags:** `@negative`  
@@ -426,7 +426,7 @@
 - Status `200`.
 - Body is an array with length `0`.
 
-### TC-USERS-GET-FULLSCHEMA-025
+### TC-026-USERS-GET-FULLSCHEMA-200
 
 **Name:** GET `/users` — first item matches full nested schema  
 **Tags:** `@happy-path`  
@@ -442,9 +442,9 @@
 - Header `Content-Type` starts with `application/json`.
 - Body is an array with length `>= 1`.
 - The first item conforms to **full user schema** (`address.geo`, `company`, required string fields).
-- Note: list-wide minimal contract is covered by `TC-USERS-GET-200-003`; here we spot-check **strict nested** structure.
+- Note: list-wide minimal contract is covered by `TC-003-USERS-GET-200`; here we spot-check **strict nested** structure.
 
-### TC-POSTS-POST-LARGE-026
+### TC-027-POSTS-POST-LARGE-2XX
 
 **Name:** POST `/posts` — large payload from template (data-driven, echo & schema)  
 **Tags:** `@negative`  

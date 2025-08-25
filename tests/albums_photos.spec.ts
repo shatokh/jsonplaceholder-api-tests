@@ -4,7 +4,7 @@ import albumSchema from '../schemas/album.schema.json';
 import photoSchema from '../schemas/photo.schema.json';
 
 test.describe('Albums & Photos API', () => {
-  test('GET /albums returns 200 and contract @happy-path [TC-ALBUMS-GET-200-005]', async ({
+  test('GET /albums returns 200 and contract @happy-path [TC-005-ALBUMS-GET-200]', async ({
     request,
   }) => {
     const res = await request.get('/albums');
@@ -14,7 +14,7 @@ test.describe('Albums & Photos API', () => {
     for (const item of body) assertSchema(item, albumSchema);
   });
 
-  test('GET /photos returns 200 and contract @happy-path [TC-PHOTOS-GET-200-006]', async ({
+  test('GET /photos returns 200 and contract @happy-path [TC-006-PHOTOS-GET-200]', async ({
     request,
   }) => {
     const res = await request.get('/photos');

@@ -22,7 +22,7 @@ const expandedLargeTemplates: LargePost[] = (
 ).map((tpl) => expandTemplate(tpl)) as LargePost[];
 
 test.describe('Edge / Parallel', () => {
-  test('Parallel GETs across resources @negative [TC-PARALLEL-GET-SMOKE-023]', async ({
+  test('Parallel GETs across resources @negative [TC-024-MULTI-GET-PARALLEL-200]', async ({
     request,
   }) => {
     const endpoints = ['/posts', '/users', '/todos', '/albums', '/photos'];
@@ -30,7 +30,7 @@ test.describe('Edge / Parallel', () => {
     for (const res of resps) expect(res.status()).toBe(200);
   });
 
-  test('GET /posts?userId=999 yields empty array @negative [TC-FILTER-EMPTY-024]', async ({
+  test('GET /posts?userId=999 yields empty array @negative [TC-025-POSTS-GET-FILTER-EMPTY-200]', async ({
     request,
   }) => {
     const res = await request.get('/posts', { params: { userId: '999' } });
@@ -40,7 +40,7 @@ test.describe('Edge / Parallel', () => {
     expect(body.length).toBe(0);
   });
 
-  test('POST /posts large payload from template @negative [TC-POSTS-POST-LARGE-026]', async ({
+  test('POST /posts large payload from template @negative [TC-027-POSTS-POST-LARGE-2XX]', async ({
     request,
     recordCurl,
   }) => {

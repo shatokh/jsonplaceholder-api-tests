@@ -8,13 +8,13 @@ import badPosts from '../test-data/posts.invalid-types.json';
 import { safeParseJson, isPlainEmptyObject } from './helpers';
 
 test.describe('Negative & edge cases', () => {
-  test('GET /unknown returns 404 @negative [TC-UNKNOWN-GET-404-015]', async ({ request }) => {
+  test('GET /unknown returns 404 @negative [TC-016-UNKNOWN-GET-404]', async ({ request }) => {
     const res = await request.get('/unknown');
     // Primary expectation is 404, but we document actual behavior if the mock differs.
     expect([404, 400, 500]).toContain(res.status());
   });
 
-  test('GET /posts/999999 not found (document actual) @negative [TC-POSTS-GETID-NOTFOUND-016]', async ({
+  test('GET /posts/999999 not found (document actual) @negative [TC-017-POSTS-GETID-NOTFOUND]', async ({
     request,
   }) => {
     const res = await request.get('/posts/999999');
@@ -34,7 +34,7 @@ test.describe('Negative & edge cases', () => {
     expect(ok404 || ok200Empty).toBeTruthy();
   });
 
-  test('POST /posts without Content-Type - capture behavior @negative [TC-POSTS-POST-NO-CTYPE-017]', async ({
+  test('POST /posts without Content-Type - capture behavior @negative [TC-018-POSTS-POST-NO-CTYPE]', async ({
     request,
   }) => {
     const res = await request.post('/posts', {
@@ -45,7 +45,7 @@ test.describe('Negative & edge cases', () => {
     expect([200, 201, 400, 415, 500]).toContain(res.status());
   });
 
-  test('POST /posts malformed JSON - capture behavior @negative [TC-POSTS-POST-MALFORMED-018]', async ({
+  test('POST /posts malformed JSON - capture behavior @negative [TC-019-POSTS-POST-MALFORMED]', async ({
     request,
   }) => {
     const res = await request.post('/posts', {
@@ -57,7 +57,7 @@ test.describe('Negative & edge cases', () => {
     expect(res.status()).toBeLessThan(600);
   });
 
-  test('PUT /posts/1 with wrong types fails client schema @negative [TC-POSTS-PUT-SCHEMA-INVALID-019]', async ({
+  test('PUT /posts/1 with wrong types fails client schema @negative [TC-020-POSTS-PUT-SCHEMA-INVALID]', async ({
     request,
   }) => {
     const bad = badPosts[0]; // e.g., { title: 123, body: true, userId: "one" }
@@ -70,7 +70,7 @@ test.describe('Negative & edge cases', () => {
     expect(() => assertSchema(body, postSchema)).toThrow();
   });
 
-  test('PATCH /posts/1 with wrong types fails client schema @negative [TC-POSTS-PATCH-SCHEMA-INVALID-020]', async ({
+  test('PATCH /posts/1 with wrong types fails client schema @negative [TC-021-POSTS-PATCH-SCHEMA-INVALID]', async ({
     request,
   }) => {
     const bad = badPosts[1]; // e.g., { title: null, body: [], userId: "2" }
@@ -82,7 +82,7 @@ test.describe('Negative & edge cases', () => {
     expect(() => assertSchema(body, postSchema)).toThrow();
   });
 
-  test('DELETE /posts/999999999 returns 2xx (mock trait) @negative [TC-POSTS-DELETE-NONEXIST-2XX-021]', async ({
+  test('DELETE /posts/999999999 returns 2xx (mock trait) @negative [TC-022-POSTS-DELETE-NONEXIST-2XX]', async ({
     request,
   }) => {
     const res = await request.delete('/posts/999999999');
@@ -90,7 +90,7 @@ test.describe('Negative & edge cases', () => {
     expect(res.status()).toBeLessThan(300);
   });
 
-  test('GET /posts with wrong Accept - capture behavior @negative [TC-ACCEPT-WRONG-NEG-022]', async ({
+  test('GET /posts with wrong Accept - capture behavior @negative [TC-023-POSTS-GET-ACCEPT-NEG]', async ({
     request,
   }) => {
     const res = await request.get('/posts', { headers: { Accept: 'text/xml' } });

@@ -4,7 +4,7 @@ import userSchema from '../schemas/user.schema.json';
 import userFullSchema from '../schemas/user.full.schema.json';
 
 test.describe('Users API', () => {
-  test('GET /users returns 200 and minimal user contract @happy-path [TC-USERS-GET-200-003]', async ({
+  test('GET /users returns 200 and minimal user contract @happy-path [TC-003-USERS-GET-200]', async ({
     request,
   }) => {
     const res = await request.get('/users');
@@ -17,7 +17,7 @@ test.describe('Users API', () => {
     for (const item of body) assertSchema(item, userSchema);
   });
 
-  test('GET /users - first user matches full nested schema @happy-path [TC-USERS-GET-FULLSCHEMA-025]', async ({
+  test('GET /users - first user matches full nested schema @happy-path [TC-026-USERS-GET-FULLSCHEMA-200]', async ({
     request,
   }) => {
     const res = await request.get('/users');

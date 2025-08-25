@@ -4,7 +4,7 @@ import commentSchema from '../schemas/comment.schema.json';
 import todoSchema from '../schemas/todo.schema.json';
 
 test.describe('Nested endpoints', () => {
-  test('GET /posts/1/comments - each has postId=1 @happy-path [TC-POSTS-GET-NESTED-200-009]', async ({
+  test('GET /posts/1/comments - each has postId=1 @happy-path [TC-009-POSTS-GET-NESTED-200]', async ({
     request,
   }) => {
     const res = await request.get('/posts/1/comments');
@@ -17,7 +17,7 @@ test.describe('Nested endpoints', () => {
     }
   });
 
-  test('GET /users/1/todos - each has userId=1 @happy-path [TC-USERS-GET-NESTED-200-010]', async ({
+  test('GET /users/1/todos - each has userId=1 @happy-path [TC-010-USERS-GET-NESTED-200]', async ({
     request,
   }) => {
     const res = await request.get('/users/1/todos');

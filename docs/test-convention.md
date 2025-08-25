@@ -4,8 +4,9 @@ This document standardizes how we **name**, **tag**, **assert**, **trace**, and 
 
 ## 1) ID Scheme (unique per automated test)
 
-**Format:** `TC-{RESOURCE}-{OP}-{ASPECT}-{SEQ}`
+**Format:** `TC-{SEQ}-{RESOURCE}-{OP}-{QUALIFIER}`
 
+- **SEQ**: 3-digit counter per `{RESOURCE}-{OP}-{ASPECT}` (e.g., `001`, `002`). Never reuse IDs.
 - **RESOURCE** (caps):
   - `POSTS`, `COMMENTS`, `ALBUMS`, `PHOTOS`, `TODOS`, `USERS`, `NESTED`, `UNKNOWN`
 - **OP**:
@@ -14,13 +15,12 @@ This document standardizes how we **name**, **tag**, **assert**, **trace**, and 
   - `200` (basic 200 OK), `JSONSCHEMA` (contract), `FILTER`, `NESTED`,
   - `NO-CTYPE`, `MALFORMED`, `SCHEMA-INVALID`,
   - `DELETE-2XX`, `WRONG-ACCEPT`, `PARALLEL`, `EMPTY`, `UNICODE`
-- **SEQ**: 3-digit counter per `{RESOURCE}-{OP}-{ASPECT}` (e.g., `001`, `002`). Never reuse IDs.
 
 **Examples:**
 
-- `TC-POSTS-GET-200-001` - basic list with 200 and minimal contract
-- `TC-POSTS-POST-JSONSCHEMA-002` - POST success, JSON echo + id, contract enforced
-- `TC-POSTS-DELETE-2XX-013` - DELETE returns 2xx (mock trait)
+- `TC-001-POSTS-GET-200` - basic list with 200 and minimal contract
+- `TC-011-POSTS-POST-2XX` - POST success, JSON echo + id, contract enforced
+- `TC-014-POSTS-DELETE-2XX` - DELETE returns 2xx (mock trait)
 
 ## 2) Tags
 
@@ -76,8 +76,8 @@ These rules prevent false failures on a stateless mock.
 ## 8) Naming Conventions
 
 - Test title: concise action + expectation + tag + `[TC-ID]`.
-  - Example: `GET /posts returns 200 and minimal contract @happy-path [TC-POSTS-GET-200-001]`
-- Commit messages referencing tests include the TC ID, e.g., `test(posts): add filter by userId @happy-path [TC-POSTS-GET-FILTER-200-007]`.
+  - Example: `GET /posts returns 200 and minimal contract @happy-path [TC-001-POSTS-GET-200]`
+- Commit messages referencing tests include the TC ID, e.g., `test(posts): add filter by userId @happy-path [TC-007-POSTS-GET-FILTER-200]`.
 
 ## 9) CI & Scheduling
 
