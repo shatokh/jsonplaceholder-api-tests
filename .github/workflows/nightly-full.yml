@@ -2,7 +2,7 @@ name: Nightly Full API Tests
 
 on:
   schedule:
-    - cron: '0 1 * * *' # 01:00 UTC nightly
+    - cron: '0 1 * * 0' # 01:00 UTC Sundays
   workflow_dispatch:
 
 jobs:
